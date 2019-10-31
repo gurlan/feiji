@@ -1,10 +1,13 @@
 import sys
 import pygame
+from settings import Settings
 
 
 def run_game():
     pygame.init()
-    screen = pygame.display.set_mode((1200, 800))
+    ai_settings = Settings()
+    screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height))
+    screen.fill(ai_settings.bg_color)
     pygame.display.set_caption("Alien Invasion")
 
     # 开始游戏的主循环
@@ -15,6 +18,5 @@ def run_game():
                 sys.exit()
         # 让最近绘制的屏幕可见
         pygame.display.flip()
-
 
 run_game()
